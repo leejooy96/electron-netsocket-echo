@@ -1,0 +1,53 @@
+{
+  "name": "electron-netsocket-echo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "npm run start",
+    "start": "electron src/main.js",
+    "build": "electron-builder --win nsis:ia32 portable"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "net": "^1.0.2",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "electron": "^9.1.2",
+    "electron-builder": "^22.8.0"
+  },
+  "build": {
+    "productName": "electronSocketTest",
+    "appId": "com.test.electronsocket",
+    "asar": true,
+    "protocols": {
+      "name": "electronSocketTest",
+      "schemes": [
+        "electronSocketTest"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/installer/Icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  }
+}
