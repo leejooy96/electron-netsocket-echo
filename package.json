@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npm run start",
     "start": "electron src/main.js",
-    "build": "electron-builder --win nsis:ia32 portable"
+    "build-windows": "electron-builder --win nsis:ia32 portable",
+    "build-macos": "electron-builder --mac"
   },
   "keywords": [],
   "author": "",
@@ -33,12 +34,23 @@
         "electronSocketTest"
       ]
     },
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "./resources/installer/icon512.png"
+    },
+    "dmg": {
+      "title": "electronSocketTest",
+      "icon": "./resources/installer/icon512.png",
+      "sign": false
+    },
     "win": {
       "target": [
         "zip",
         "nsis"
       ],
-      "icon": "./resources/installer/Icon.ico"
+      "icon": "./resources/installer/icon.ico"
     },
     "nsis": {
       "oneClick": false,
